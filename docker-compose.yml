@@ -27,6 +27,8 @@ x-assets: &default-assets
     context: "."
     target: "assets"
     args:
+      - "UID=${UID:-1000}"
+      - "GID=${GID:-1000}"
       - "RAILS_ENV=${RAILS_ENV:-production}"
       - "NODE_ENV=${NODE_ENV:-production}"
   env_file:
