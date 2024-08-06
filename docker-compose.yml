@@ -103,7 +103,7 @@ services:
 
   cable:
     <<: *default-app
-    command: "puma -p 28080 cable/config.ru"
+    command: "puma -p 28080 cable/config.ru | echo $UID $GID"
     entrypoint: []
     args:
       - "UID=${UID:-1000}"
