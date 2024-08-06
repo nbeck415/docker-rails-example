@@ -105,6 +105,9 @@ services:
     <<: *default-app
     command: "puma -p 28080 cable/config.ru"
     entrypoint: []
+    args:
+      - "UID=${UID:-1000}"
+      - "GID=${GID:-1000}"
     deploy:
       resources:
         limits:
