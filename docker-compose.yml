@@ -20,7 +20,7 @@ x-app: &default-app
   stop_grace_period: "3s"
   tty: true
   volumes:
-    - "${DOCKER_WEB_VOLUME:-./public:/app/public}"
+    - "${DOCKER_WEB_VOLUME:-./public:/sample/public}"
 
 x-assets: &default-assets
   build:
@@ -38,7 +38,7 @@ x-assets: &default-assets
   stop_grace_period: "3s"
   tty: true
   volumes:
-    - ".:/data"
+    - ".:/sample"
 
 services:
   postgres:
@@ -103,7 +103,7 @@ services:
 
   cable:
     <<: *default-app
-    command: "puma -p 28080 cable/config.ru | echo $UID $GID"
+    command: "puma -p 28080 cable/config.ru"
     entrypoint: []
     args:
       - "UID=${UID:-1000}"
