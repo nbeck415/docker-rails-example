@@ -15,7 +15,7 @@ x-app: &default-app
       condition: "service_started"
       required: false
   env_file:
-    - ".env"
+    - ".env.example"
   restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
   stop_grace_period: "3s"
   tty: true
@@ -32,7 +32,7 @@ x-assets: &default-assets
       - "RAILS_ENV=${RAILS_ENV:-production}"
       - "NODE_ENV=${NODE_ENV:-production}"
   env_file:
-    - ".env"
+    - ".env.example"
   profiles: ["assets"]
   restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
   stop_grace_period: "3s"
