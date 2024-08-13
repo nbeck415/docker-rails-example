@@ -73,6 +73,8 @@ services:
 
   web:
     <<: *default-app
+    labels:
+      shipyard.route: '/'
     deploy:
       resources:
         limits:
@@ -117,6 +119,8 @@ services:
     command: "yarn build"
 
   css:
+    labels:
+      shipyard.job: true
     <<: *default-assets
     command: "yarn build:css"
 
