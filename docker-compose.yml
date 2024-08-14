@@ -83,6 +83,7 @@ services:
     environment:
       UID: 1000
       GID: 1000
+      RAILS_SERVE_STATIC_FILES: 'true'
     healthcheck:
       test: "${DOCKER_WEB_HEALTHCHECK_TEST:-curl localhost:8000/up}"
       interval: "60s"
