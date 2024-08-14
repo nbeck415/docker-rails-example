@@ -121,8 +121,6 @@ services:
     profiles: ["cable"]
 
   js:
-    labels:
-      shipyard.job: true
     <<: *default-assets
     command: "yarn build"
 
